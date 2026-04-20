@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บางแสน · ทริปครอบครัว · เม.ย. 69</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Thai:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #F5EFE0;
+    --sand2: #EDE4CC;
+    --ocean: #1B4D6E;
+    --ocean2: #2A6B96;
+    --ocean3: #4D9EC0;
+    --sky: #A8D5E8;
+    --sky2: #D6EDF7;
+    --coral: #E07A5F;
+    --coral2: #F2B49A;
+    --gold: #C9903A;
+    --gold2: #E8C17A;
+    --text: #1A1208;
+    --text2: #4A3F2F;
+    --text3: #8C7B60;
+    --white: #FDFAF3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--sand);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: var(--ocean);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 180px;
+    overflow: hidden;
+  }
+
+  .wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 100%;
+    background: var(--sand);
+    border-radius: 45% 55% 0 0 / 60% 60% 0 0;
+    animation: waveAnim 6s ease-in-out infinite;
+  }
+  .wave2 {
+    background: var(--sand2);
+    opacity: 0.5;
+    animation: waveAnim2 8s ease-in-out infinite;
+    border-radius: 55% 45% 0 0 / 70% 50% 0 0;
+  }
+
+  @keyframes waveAnim {
+    0%, 100% { transform: translateX(-25%) scaleY(1); }
+    50% { transform: translateX(-30%) scaleY(1.05); }
+  }
+  @keyframes waveAnim2 {
+    0%, 100% { transform: translateX(-20%) scaleY(0.95); }
+    50% { transform: translateX(-28%) scaleY(1.1); }
+  }
+
+  .stars {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 40%;
+    pointer-events: none;
+  }
+  .star {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: twinkle var(--d, 3s) ease-in-out infinite var(--del, 0s);
+  }
+  @keyframes twinkle {
+    0%,100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+  }
+
+  .hero-content {
+    text-align: center;
+    z-index: 2;
+    padding: 2rem;
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold2);
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--sky2);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-pills {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--sky2);
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(4px);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 2;
+    animation: fadeUp 1.5s 0.8s ease forwards;
+    opacity: 0;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ===== SECTION LAYOUT ===== */
+  .section {
+    padding: 5rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ocean2);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--ocean3);
+    opacity: 0.25;
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: var(--ocean);
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+  }
+
+  /* ===== OVERVIEW CARDS ===== */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    border: 1px solid rgba(27,77,110,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(27,77,110,0.1);
+  }
+  .stat-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--ocean);
+    font-weight: 700;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text3);
+    margin-top: 0.25rem;
+    font-family: 'Noto Serif Thai', serif;
+  }
+
+  /* ===== TIMELINE ===== */
+  .day-block {
+    margin-bottom: 4rem;
+  }
+
+  .day-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--ocean);
+    color: var(--white);
+    padding: 0.5rem 1.2rem 0.5rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+  }
+  .day-num {
+    background: var(--gold);
+    color: var(--white);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 8px; bottom: 8px;
+    width: 1.5px;
+    background: linear-gradient(to bottom, var(--ocean3), var(--sky2));
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 1.25rem;
+    animation: slideIn 0.5s ease both;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-12px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 14px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--ocean3);
+    background: var(--ocean3);
+  }
+  .tl-dot.food { background: var(--gold); box-shadow: 0 0 0 2px var(--gold2); }
+  .tl-dot.stay { background: var(--coral); box-shadow: 0 0 0 2px var(--coral2); }
+  .tl-dot.option { background: var(--sky); box-shadow: 0 0 0 2px var(--sky2); }
+
+  .tl-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(27,77,110,0.07);
+    transition: transform 0.2s ease;
+  }
+  .tl-card:hover { transform: translateX(4px); }
+
+  .tl-time {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    margin-bottom: 0.2rem;
+  }
+
+  .tl-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .tl-note {
+    font-size: 0.78rem;
+    color: var(--text3);
+    line-height: 1.5;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    margin-right: 0.4rem;
+    text-transform: uppercase;
+  }
+  .badge-a { background: var(--sky2); color: var(--ocean); }
+  .badge-b { background: #F9E4F0; color: #8B3A6E; }
+  .badge-food { background: #FDF0D8; color: var(--gold); }
+
+  /* ===== MAP SECTION ===== */
+  .map-section {
+    background: var(--ocean);
+    padding: 5rem 1.5rem;
+  }
+
+  .map-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .map-section .section-label { color: var(--sky); }
+  .map-section .section-label::after { background: var(--sky); }
+  .map-section .section-title { color: var(--white); }
+
+  .places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .place-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 1.25rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    cursor: pointer;
+  }
+  .place-card:hover {
+    background: rgba(255,255,255,0.13);
+    transform: translateY(-3px);
+  }
+
+  .place-day {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 0.5rem;
+  }
+
+  .place-name {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .place-meta {
+    font-size: 0.75rem;
+    color: rgba(168,213,232,0.8);
+    line-height: 1.5;
+  }
+
+  .place-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(201,144,58,0.2);
+    border: 1px solid rgba(201,144,58,0.3);
+    color: var(--gold2);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    margin-top: 0.6rem;
+  }
+
+  .map-open-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .map-open-btn:hover {
+    background: var(--gold2);
+    transform: scale(1.03);
+    color: var(--ocean);
+  }
+
+  /* ===== ROUTE TABLE ===== */
+  .route-section {
+    background: var(--white);
+  }
+
+  .route-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  .route-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+    border-bottom: 2px solid var(--sand2);
+  }
+
+  .route-table td {
+    padding: 1rem 1rem;
+    border-bottom: 1px solid var(--sand2);
+    vertical-align: middle;
+    color: var(--text2);
+    font-family: 'Noto Serif Thai', serif;
+  }
+
+  .route-table tr:last-child td { border-bottom: none; }
+
+  .route-table tr:hover td { background: var(--sand); }
+
+  .dist-badge {
+    background: var(--sky2);
+    color: var(--ocean);
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .time-badge {
+    background: #FDF0D8;
+    color: var(--gold);
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .arrow-icon { color: var(--ocean3); font-size: 1rem; }
+
+  /* ===== TIPS ===== */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .tip-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.25rem;
+    border-left: 3px solid var(--ocean3);
+    transition: transform 0.2s ease;
+  }
+  .tip-card:hover { transform: translateY(-2px); }
+  .tip-card.warn { border-left-color: var(--coral); }
+  .tip-card.gold { border-left-color: var(--gold); }
+
+  .tip-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .tip-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    font-family: 'Noto Serif Thai', serif;
+  }
+  .tip-text { font-size: 0.78rem; color: var(--text3); line-height: 1.6; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ocean);
+    color: rgba(168,213,232,0.7);
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  footer strong { color: var(--white); }
+
+  /* ===== DIVIDER ===== */
+  .wave-divider {
+    background: var(--sand);
+    line-height: 0;
+  }
+  .wave-divider.flip { background: var(--white); }
+  .wave-divider svg { display: block; }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .overview-grid { grid-template-columns: repeat(2, 1fr); }
+    .route-table { font-size: 0.8rem; }
+    .route-table th, .route-table td { padding: 0.6rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Family Trip · April 2026</div>
+    <h1 class="hero-title">บาง<em>แสน</em></h1>
+    <p class="hero-subtitle">สองวันริมทะเล · ครอบครัวสุขใจ</p>
+    <div class="hero-pills">
+      <span class="pill">📅 24–25 เมษายน</span>
+      <span class="pill">📍 ชลบุรี</span>
+      <span class="pill">🏊 Mojinei Pool Villa</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>เลื่อนดู</span>
+    <div class="scroll-line"></div>
+  </div>
+  <div class="hero-waves">
+    <div class="wave wave2"></div>
+    <div class="wave"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section">
+  <div class="section-label">ภาพรวม</div>
+  <h2 class="section-title">ทริปนี้มีอะไรบ้าง</h2>
+
+  <div class="overview-grid">
+    <div class="stat-card">
+      <div class="stat-icon">🌊</div>
+      <div class="stat-value">2</div>
+      <div class="stat-label">วัน / คืน</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📍</div>
+      <div class="stat-value">6</div>
+      <div class="stat-label">จุดเที่ยว</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🚗</div>
+      <div class="stat-value">~85</div>
+      <div class="stat-label">กม. Day 2</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🎉</div>
+      <div class="stat-value">Songkran</div>
+      <div class="stat-label">ช่วง Holiday</div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<section class="section" style="padding-top: 0;">
+  <div class="day-block">
+    <div class="day-tag"><span class="day-num">1</span> วันพฤหัส 24 เม.ย. — เดินทางถึง + เช็คอิน</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-time">ก่อน 11:00</div>
+          <div class="tl-title">เที่ยวเบา ๆ แถวบางแสน</div>
+          <div class="tl-note">พักผ่อน + สำรวจบรรยากาศก่อนเช็คอิน</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot food"></div>
+        <div class="tl-card">
+          <div class="tl-time">11:00 – 12:00</div>
+          <div class="tl-title">มื้อกลางวัน · ตามสะดวก</div>
+          <div class="tl-note">ทานตามใจชอบแถวบางแสน</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-time">12:15 – 14:00</div>
+          <div class="tl-title">อาคารวาเรียม มหาวิทยาลัยบูรพา</div>
+          <div class="tl-note">⭐ 4.6 · เปิด อ.–อา. 09:00–16:30 · ไทย 80฿ / ต่างชาติ 220฿</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot stay"></div>
+        <div class="tl-card">
+          <div class="tl-time">14:00</div>
+          <div class="tl-title">เช็คอิน Mojinei Pool Villa</div>
+          <div class="tl-note">⭐ 4.6 · Pool villa · สระน้ำเกลือ · ใกล้หาด</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-time">15:00 – 18:00</div>
+          <div class="tl-title">พักผ่อน · เล่นสระในวิลล่า</div>
+          <div class="tl-note">เวลาของครอบครัว 🏊</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot food"></div>
+        <div class="tl-card">
+          <div class="tl-time">18:30</div>
+          <div class="tl-title">มื้อเย็น</div>
+          <div class="tl-note">ซื้อกลับหรือทานร้านใกล้หาดบางแสน</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot stay"></div>
+        <div class="tl-card">
+          <div class="tl-time">กลางคืน</div>
+          <div class="tl-title">พักผ่อนตามอัธยาศัย</div>
+          <div class="tl-note">ที่วิลล่า 🌙</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-block">
+    <div class="day-tag"><span class="day-num">2</span> วันศุกร์ 25 เม.ย. — วันเที่ยวหลัก</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-time">08:00</div>
+          <div class="tl-title">ออกจากที่พัก</div>
+          <div class="tl-note">มุ่งหน้าสวนสัตว์เปิดเขาเขียว ~30 นาที</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-time">09:00 – 12:30</div>
+          <div class="tl-title">สวนสัตว์เปิดเขาเขียว</div>
+          <div class="tl-note">⭐ 4.4 · เปิดทุกวัน 08:00–17:00 · แนะนำเช่ารถกอล์ฟ</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-time">12:00 – 12:30</div>
+          <div class="tl-title">ผ่านอ่างเก็บน้ำบางพระ</div>
+          <div class="tl-note">⭐ 4.4 · แวะชมวิวระหว่างทาง</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-time">12:30 – 13:00</div>
+          <div class="tl-title">เกาะลอย ศรีราชา</div>
+          <div class="tl-note">⭐ 4.5 · เปิด 06:00–22:00 · ทิวทัศน์ทะเล + วัดจีน</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot food"></div>
+        <div class="tl-card">
+          <div class="tl-time">13:00 – 14:00</div>
+          <div class="tl-title">มื้อกลางวัน · ร้านไก่อบโอ่ง</div>
+          <div class="tl-note">ไก่อบโอ่งศรีราชา · เมนูเด็ดประจำย่าน 🍗</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot option"></div>
+        <div class="tl-card">
+          <div class="tl-time">14:30 – 16:30</div>
+          <div class="tl-title"><span class="badge badge-a">Option A</span>Space Inspirium</div>
+          <div class="tl-note">⭐ 4.5 · พิพิธภัณฑ์อวกาศ · ผู้ใหญ่ 50฿ เด็ก 20฿ · เหมาะเด็กมาก</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot option"></div>
+        <div class="tl-card">
+          <div class="tl-time">16:00 – 18:00</div>
+          <div class="tl-title"><span class="badge badge-b">Option B</span>นั่งหาด / คาเฟ่ริมทะเล</div>
+          <div class="tl-note">กลับบางแสน 14:30–15:30 → ชิลริมทะเล ถ้าพลังเด็กหมดแล้ว</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot food"></div>
+        <div class="tl-card">
+          <div class="tl-time">18:30</div>
+          <div class="tl-title">มื้อเย็น · ครัวบ้านเรา</div>
+          <div class="tl-note">ทานที่ร้าน + สั่งซื้อกลับมาทานที่บ้านพักด้วยบางส่วน 🍽️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA SECTION -->
+<section class="section" style="padding-top:0;">
+  <div class="section-label">ดูก่อนไป</div>
+  <h2 class="section-title">รูป & คลิปสถานที่</h2>
+
+  <!-- อาคารวาเรียม -->
+  <div class="media-block">
+    <div class="media-block-header">
+      <span class="media-day-tag">Day 1</span>
+      <h3 class="media-title">🐟 อาคารวาเรียม มหาวิทยาลัยบูรพา</h3>
+    </div>
+    <div class="media-grid">
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/places/ANXAkqEqzo-hyjjXZFTS_520UjAqdlwncZoOAEBPiLq_AR0FI2dSoFPv3Ejcchx8ek2BHrwXvsUq_jEXVXwSxqPOTtLbXdxHvfhrIwk=s800-w800-h600" alt="อาคารวาเรียม" loading="lazy">
+      </div>
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMeJ_AnT54Ll-MqDNzseLLlA1qZ1WHbm2FetD1XVtXE-nqgXBaELl6orG1pYl1jXC464VbqPpXEMPpLbHwZQrQw6Rv7sR8a0flMg2BK7eTORchLcFsPpgmsZm01WP6Boh70Yav2BMdBnTKEUQ=s800-w800-h600" alt="อาคารวาเรียม" loading="lazy">
+      </div>
+      <div class="tiktok-wrap">
+        <blockquote class="tiktok-embed" cite="https://vt.tiktok.com/ZSHwdhYJc/" data-video-id="" style="max-width:100%;min-width:0;">
+          <a href="https://vt.tiktok.com/ZSHwdhYJc/">คลิป TikTok อาคารวาเรียม #1</a>
+        </blockquote>
+      </div>
+      <div class="tiktok-wrap">
+        <blockquote class="tiktok-embed" cite="https://vt.tiktok.com/ZSHwddPR4/" data-video-id="" style="max-width:100%;min-width:0;">
+          <a href="https://vt.tiktok.com/ZSHwddPR4/">คลิป TikTok อาคารวาเรียม #2</a>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mojinei Pool Villa -->
+  <div class="media-block">
+    <div class="media-block-header">
+      <span class="media-day-tag">Day 1 · ที่พัก</span>
+      <h3 class="media-title">🏊 Mojinei Pool Villa</h3>
+    </div>
+    <div class="media-grid">
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/places/ANXAkqE2VE8pLLCxM-W0gCbpRYx5B6YDCDAhaLYZmDUd7sXq2YoJX-N1LXdLkluiwOuG0eGtLWzv3WTXWOYeK11WaaFt_mER92PmtKc=s800-w800-h600" alt="Mojinei Pool Villa" loading="lazy">
+      </div>
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPNC64G6AJOjLz6i9w-MBIj1VWypB-PhluopL35wvOEvAFPboV_AJNfO4r0AZEiYEkb9eizthRq2vDooc1kkJ8HCp1IN_0zIWbjCzBP_38JyPpvouCAKCkLpGZ8PgvyueMmmfsv-H8fbHqZzsycx0br=s800-w800-h600" alt="Mojinei Pool Villa" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- หาดพื้นบ้าน -->
+  <div class="media-block">
+    <div class="media-block-header">
+      <span class="media-day-tag">Day 1 · บรรยากาศ</span>
+      <h3 class="media-title">🌊 หาดพื้นบ้าน บางแสน</h3>
+    </div>
+    <div class="media-grid">
+      <div class="tiktok-wrap">
+        <blockquote class="tiktok-embed" cite="https://vt.tiktok.com/ZSHwLqCTu/" data-video-id="" style="max-width:100%;min-width:0;">
+          <a href="https://vt.tiktok.com/ZSHwLqCTu/">คลิป TikTok หาดพื้นบ้าน</a>
+        </blockquote>
+      </div>
+      <div class="tiktok-wrap">
+        <blockquote class="tiktok-embed" cite="https://vt.tiktok.com/ZS91j1cs1/" data-video-id="" style="max-width:100%;min-width:0;">
+          <a href="https://vt.tiktok.com/ZS91j1cs1/">คลิป TikTok โกปิ๊</a>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- สวนสัตว์เขาเขียว -->
+  <div class="media-block">
+    <div class="media-block-header">
+      <span class="media-day-tag">Day 2</span>
+      <h3 class="media-title">🦒 สวนสัตว์เปิดเขาเขียว</h3>
+    </div>
+    <div class="media-grid">
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMvEWjV75iFDje36jm_V-Vs58WyKsiHjIJXRf70wdzdCSR2KN7dXhkt8mVQFO_lIX3jwfgdtC6CCmgcq_BqPW9AeD0ZkSMS06oGOL9se4RwQp4cCOUab-OuLpZ9OtxRUg1mnHstfmTGun99h92xrTFk=s800-w800-h600" alt="สวนสัตว์เขาเขียว" loading="lazy">
+      </div>
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMing6aq-121JhKAdOL1FKcTvNFLMOm4LBhan8wKSLbYc801juJJX3XuRDKy1QuKqE41TVvoBf174E84APys3gJuGkssEw7Iktbs8eK9-0UvUnKZCNN2VzIFgkS_-S4za5hGLnvRk58CXyBCw=s800-w800-h600" alt="สวนสัตว์เขาเขียว" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- ไก่อบโอ่ง -->
+  <div class="media-block">
+    <div class="media-block-header">
+      <span class="media-day-tag">Day 2 · มื้อกลางวัน</span>
+      <h3 class="media-title">🍗 ร้านไก่อบโอ่ง</h3>
+    </div>
+    <div class="media-grid">
+      <div class="tiktok-wrap">
+        <blockquote class="tiktok-embed" cite="https://vt.tiktok.com/ZSHwYhLMy/" data-video-id="" style="max-width:100%;min-width:0;">
+          <a href="https://vt.tiktok.com/ZSHwYhLMy/">คลิป TikTok ไก่อบโอ่ง</a>
+        </blockquote>
+      </div>
+      <div class="tiktok-wrap">
+        <blockquote class="tiktok-embed" cite="https://vt.tiktok.com/ZS91jLkoM/" data-video-id="" style="max-width:100%;min-width:0;">
+          <a href="https://vt.tiktok.com/ZS91jLkoM/">คลิป TikTok ร้านทบ</a>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- เกาะลอย + Space Inspirium -->
+  <div class="media-block">
+    <div class="media-block-header">
+      <span class="media-day-tag">Day 2</span>
+      <h3 class="media-title">🏯 เกาะลอย ศรีราชา</h3>
+    </div>
+    <div class="media-grid">
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZORZC8NsGsFHST-fYQhNqqm2-mOQR9oZroHfSXDsVgIHSKv1kdvtXEXvFE6WTQI5DTi3nzbIVy5eI51ppi3hBr65_vnstexgevi3eLhqdlAjsdz1LjfiQjpyptzr41NHXQ_HIR0s25XhshnM9s=s800-w800-h600" alt="เกาะลอย" loading="lazy">
+      </div>
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZN93SRSUonuoDnWTcdb0DxJHqScqEg3xDU0GdHpv_UiHIAXGBdtiY2mHfvDnyq4wVy6rxZEXM09EPm2oqGVg6lKDDw3HiEO39Wqu93N42AK6Csm3il2AkTrCh-0xbH3uqEB_XLjzfCQmB9AOQ=s800-w800-h600" alt="เกาะลอย" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <div class="media-block-header">
+      <span class="media-day-tag">Day 2 · Option A</span>
+      <h3 class="media-title">🚀 Space Inspirium</h3>
+    </div>
+    <div class="media-grid">
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOHDugybCcp6ynQIA9yer69tU9VLiAwJ-iY6VchD4tCR3s5jDt33WL7xubbv5B_XckBnvdvJKFdgHzAl3A0BQ6xXjUgBepjm-h07zrIetg5TcByg-YpraEC5rslqeugfZWfMwgzKATKkL5zEfY=s800-w800-h600" alt="Space Inspirium" loading="lazy">
+      </div>
+      <div class="media-photo">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMxAcU6UAJozTW1Uhm57_nPDlMBUw5TuOvcBJB5A9jK3WMKF51vzQ6gQ5aCnLSnC952b2CO3ZK5QCUh-tWKDCDUj0RVsomHIMWWfaqvyvz2DBnvb1oYf3TTQD_54hVIBdkiZ_fsBC4LWGwx7Yg=s800-w800-h600" alt="Space Inspirium" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+.media-block {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--sand2);
+}
+.media-block:last-child { border-bottom: none; }
+
+.media-block-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.media-day-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--ocean);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+.media-title {
+  font-family: 'Noto Serif Thai', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ocean);
+}
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.media-photo {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--sand2);
+}
+.media-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.media-photo:hover img { transform: scale(1.04); }
+
+.tiktok-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--sand2);
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tiktok-wrap blockquote {
+  width: 100% !important;
+  margin: 0 !important;
+}
+</style>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<!-- DIVIDER -->
+<div style="background:var(--sand); line-height:0;">
+<svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block;">
+  <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1B4D6E"/>
+</svg>
+</div>
+
+<!-- MAP / PLACES -->
+<section class="map-section">
+  <div class="map-inner">
+    <div class="section-label">สถานที่</div>
+    <h2 class="section-title">จุดเที่ยวทั้งหมด</h2>
+
+    <div class="places-grid">
+      <a href="https://maps.google.com/?cid=9285980720341226712" target="_blank" class="place-card">
+        <div class="place-day">Day 1 · 11:15</div>
+        <div class="place-name">อาคารวาเรียม<br>มหาวิทยาลัยบูรพา</div>
+        <div class="place-meta">บางแสน ชลบุรี<br>เปิด อ.–อา. 09:00–16:30</div>
+        <div class="place-rating">⭐ 4.6 · 12,378 รีวิว</div>
+      </a>
+
+      <a href="https://maps.google.com/?cid=16984685682533254806" target="_blank" class="place-card">
+        <div class="place-day">Day 1 · ที่พัก</div>
+        <div class="place-name">Mojinei Pool Villa<br>บางแสน</div>
+        <div class="place-meta">เช็คอิน 14:00<br>สระน้ำเกลือ · ใกล้หาด</div>
+        <div class="place-rating">⭐ 4.6 · 22 รีวิว</div>
+      </a>
+
+      <a href="https://maps.google.com/?cid=11981486391532339390" target="_blank" class="place-card">
+        <div class="place-day">Day 2 · 09:00</div>
+        <div class="place-name">สวนสัตว์เปิด<br>เขาเขียว</div>
+        <div class="place-meta">ศรีราชา ชลบุรี<br>เปิดทุกวัน 08:00–17:00</div>
+        <div class="place-rating">⭐ 4.4 · 23,829 รีวิว</div>
+      </a>
+
+      <a href="https://maps.google.com/?cid=14235774727920157927" target="_blank" class="place-card">
+        <div class="place-day">Day 2 · 12:00</div>
+        <div class="place-name">อ่างเก็บน้ำบางพระ</div>
+        <div class="place-meta">ระหว่างทาง<br>แวะชมวิวแบบ drive-by</div>
+        <div class="place-rating">⭐ 4.4 · 818 รีวิว</div>
+      </a>
+
+      <a href="https://maps.google.com/?cid=9722465983396226290" target="_blank" class="place-card">
+        <div class="place-day">Day 2 · 12:30</div>
+        <div class="place-name">เกาะลอย ศรีราชา</div>
+        <div class="place-meta">ศรีราชา ชลบุรี<br>เปิดทุกวัน 06:00–22:00</div>
+        <div class="place-rating">⭐ 4.5 · 2,679 รีวิว</div>
+      </a>
+
+      <a href="https://maps.google.com/?cid=12074654786502382211" target="_blank" class="place-card">
+        <div class="place-day">Day 2 · 14:30 (Option A)</div>
+        <div class="place-name">Space Inspirium</div>
+        <div class="place-meta">ศรีราชา ชลบุรี<br>อ.–ศ. 09:00–16:00 · ส.–อา. 09:00–17:00</div>
+        <div class="place-rating">⭐ 4.5 · 2,744 รีวิว</div>
+      </a>
+    </div>
+
+    <a href="https://www.google.com/maps/dir/Khao+Kheow+Open+Zoo/Ban+Bang+Phra/Koh+Loi+Si+Racha/Space+Inspirium" target="_blank" class="map-open-btn">
+      🗺️ เปิด Google Maps เส้นทาง Day 2
+    </a>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div style="background:#1B4D6E; line-height:0;">
+<svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block;">
+  <path d="M0,30 C360,0 1080,60 1440,30 L1440,60 L0,60 Z" fill="#FDFAF3"/>
+</svg>
+</div>
+
+<!-- ROUTE TABLE -->
+<section class="section route-section" style="background: var(--white);">
+  <div class="section-label">การเดินทาง</div>
+  <h2 class="section-title">ระยะทาง & เวลา Day 2</h2>
+
+  <div style="overflow-x:auto; border-radius:16px; border:1px solid var(--sand2);">
+  <table class="route-table">
+    <thead>
+      <tr>
+        <th>จาก</th>
+        <th></th>
+        <th>ถึง</th>
+        <th>ระยะทาง</th>
+        <th>เวลา</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Mojinei Villa</td>
+        <td class="arrow-icon">→</td>
+        <td>สวนสัตว์เขาเขียว</td>
+        <td><span class="dist-badge">~22 กม.</span></td>
+        <td><span class="time-badge">~30 นาที</span></td>
+      </tr>
+      <tr>
+        <td>สวนสัตว์เขาเขียว</td>
+        <td class="arrow-icon">→</td>
+        <td>อ่างเก็บน้ำบางพระ</td>
+        <td><span class="dist-badge">~9 กม.</span></td>
+        <td><span class="time-badge">~15 นาที</span></td>
+      </tr>
+      <tr>
+        <td>อ่างเก็บน้ำบางพระ</td>
+        <td class="arrow-icon">→</td>
+        <td>เกาะลอย ศรีราชา</td>
+        <td><span class="dist-badge">~17 กม.</span></td>
+        <td><span class="time-badge">~20 นาที</span></td>
+      </tr>
+      <tr>
+        <td>เกาะลอย ศรีราชา</td>
+        <td class="arrow-icon">→</td>
+        <td>Space Inspirium</td>
+        <td><span class="dist-badge">~8 กม.</span></td>
+        <td><span class="time-badge">~12 นาที</span></td>
+      </tr>
+      <tr>
+        <td>Space Inspirium</td>
+        <td class="arrow-icon">→</td>
+        <td>Mojinei Villa</td>
+        <td><span class="dist-badge">~28 กม.</span></td>
+        <td><span class="time-badge">~35 นาที</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:0.8rem; font-size:0.78rem; color:var(--text3);">⚠️ ช่วงวันหยุดยาวการจราจรอาจหนาแน่น แนะนำบวกเพิ่ม 15–20 นาทีในทุกช่วง</p>
+</section>
+
+<!-- TIPS -->
+<div style="background:var(--white); line-height:0;">
+<svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block;">
+  <path d="M0,0 C480,40 960,0 1440,40 L1440,40 L0,40 Z" fill="var(--sand)"/>
+</svg>
+</div>
+
+<section class="section">
+  <div class="section-label">เตรียมตัว</div>
+  <h2 class="section-title">Tips & สิ่งที่ต้องรู้</h2>
+
+  <div class="tips-grid">
+    <div class="tip-card warn">
+      <div class="tip-icon">🚗</div>
+      <div class="tip-title">การจราจรช่วงวันหยุด</div>
+      <div class="tip-text">ช่วงวันหยุดยาวรถหนักมาก บวกเวลาเผื่อทุกเส้นทาง 15–20 นาที โดยเฉพาะขาออกจาก กทม.</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🐘</div>
+      <div class="tip-title">สวนสัตว์เขาเขียว</div>
+      <div class="tip-text">แนะนำเช่ารถกอล์ฟ เพราะพื้นที่กว้างมาก ถ้าเดินอาจใช้เวลา 5–7 ชั่วโมง</div>
+    </div>
+
+    <div class="tip-card gold">
+      <div class="tip-icon">🚀</div>
+      <div class="tip-title">Space Inspirium</div>
+      <div class="tip-text">ราคาถูกมาก ผู้ใหญ่ 50฿ เด็ก 20฿ ใช้เวลา 1–2 ชม. เหมาะสำหรับเด็กอย่างมาก</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">💳</div>
+      <div class="tip-title">อาคารวาเรียม</div>
+      <div class="tip-text">รับเฉพาะเงินสด ควรเตรียมให้พร้อม ค่าเข้าชมคนไทย 80฿</div>
+    </div>
+
+    <div class="tip-card warn">
+      <div class="tip-icon">🌡️</div>
+      <div class="tip-title">อากาศเดือนเมษายน</div>
+      <div class="tip-text">ร้อนมาก 35–38°C เตรียมครีมกันแดด น้ำดื่ม และหมวก โดยเฉพาะช่วงที่สวนสัตว์</div>
+    </div>
+
+    <div class="tip-card gold">
+      <div class="tip-icon">🏊</div>
+      <div class="tip-title">Mojinei Pool Villa</div>
+      <div class="tip-text">สระน้ำเกลือ ทำความสะอาดเอง วิลล่าสะอาด minimalist ใกล้หาด ตรงปก</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>บางแสน · ทริปครอบครัว</strong><br>
+  <span>24–25 เมษายน 2569</span>
+</footer>
+
+<script>
+// Generate stars
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--del:${Math.random()*3}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;`;
+  starsEl.appendChild(s);
+}
+
+// Stagger timeline items on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.style.animationDelay = '0s', i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.tl-item').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
